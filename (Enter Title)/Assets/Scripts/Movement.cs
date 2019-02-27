@@ -8,6 +8,9 @@ public class Movement : MonoBehaviour
     public float fallMulti = 2.5f;
     public float lowJump = 2f;
 
+    public GameObject _cam;
+    public GameObject _deathCam;
+
     Rigidbody rb;
 
     private void Start()
@@ -59,6 +62,25 @@ public class Movement : MonoBehaviour
         else if (rb.velocity.y > 0 && !Input.GetButton("Jump"))
         {
             rb.velocity += Vector3.up * Physics.gravity.y * (lowJump - 1) * Time.deltaTime;
+        }
+    }
+
+    public ExplosionTest _reference;
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.tag == "Obstacle")
+        {
+            _reference.Explode();
+
+            //_cam.GetComponent<FollowPlayer>().enabled = false;
+            _cam.GetComponent<Camera>().enabled = false;
+
+            _deathCam.GetComponent<Animator>().Play("PanOut");
+
+            GetComponent<Movement>().enabled = false;
+
+            GetComponent<Rigidbody>().isKinematic = true;
         }
     }
 }
