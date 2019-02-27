@@ -30,7 +30,7 @@ public class Movement : MonoBehaviour
         {
             if(transform.position.z == 1)
             {
-                Debug.Log("NOTHING");
+                //
             } 
             else 
             {
@@ -43,7 +43,7 @@ public class Movement : MonoBehaviour
         {
             if (transform.position.z == -1)
             {
-                Debug.Log("NOTHING MORE");
+                //
             }
             else
             {

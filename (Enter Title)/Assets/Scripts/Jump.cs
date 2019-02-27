@@ -20,7 +20,7 @@ public class Jump : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.name == "Ground")
+        if (collision.gameObject.tag == "Ground")
         {
             grounded = true;
         }
@@ -28,7 +28,7 @@ public class Jump : MonoBehaviour
 
     private void OnCollisionExit(Collision collision)
     {
-        if (collision.gameObject.name == "Ground")
+        if (collision.gameObject.tag == "Ground")
         {
             grounded = false;
         }
