@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Movement : MonoBehaviour
 {
@@ -66,6 +67,7 @@ public class Movement : MonoBehaviour
     }
 
     public ExplosionTest _reference;
+    public Finish _finishRef;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -76,11 +78,47 @@ public class Movement : MonoBehaviour
             //_cam.GetComponent<FollowPlayer>().enabled = false;
             _cam.GetComponent<Camera>().enabled = false;
 
+            _deathCam.GetComponent<Camera>().enabled = true;
+
             _deathCam.GetComponent<Animator>().Play("PanOut");
+
+            StartCoroutine("Reload");
 
             GetComponent<Movement>().enabled = false;
 
             GetComponent<Rigidbody>().isKinematic = true;
         }
+
+        if(other.gameObject.tag == "Slow")
+        {
+            if (Time.timeScale == 1.0f)
+                Time.timeScale = 0.5f;
+            else
+                Time.timeScale = 1.0f;
+            Time.fixedDeltaTime = 0.02f * Time.timeScale;
+        }
+
+        if (other.gameObject.tag == "Fast")
+        {
+            if (Time.timeScale == 1.0f)
+                Time.timeScale = 0.5f;
+            else
+                Time.timeScale = 1.0f;
+            // Adjust fixed delta time according to timescale
+            // The fixed delta time will now be 0.02 frames per real-time second
+            Time.fixedDeltaTime = 0.02f * Time.timeScale;
+        }
+
+        if(other.gameObject.tag == "Finish")
+        {
+            _finishRef.FinishEx();
+        }
+    }
+
+    IEnumerator Reload()
+    {
+        yield return new WaitForSeconds(3f);
+
+        Scene scene = SceneManager.GetActiveScene(); SceneManager.LoadScene(scene.name);
     }
 }

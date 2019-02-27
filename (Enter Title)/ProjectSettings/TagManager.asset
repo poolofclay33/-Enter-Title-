@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Ground
   - Obstacle
+  - Slow
+  - Fast
   layers:
   - Default
   - TransparentFX
