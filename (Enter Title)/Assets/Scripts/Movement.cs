@@ -14,6 +14,8 @@ public class Movement : MonoBehaviour
 
     Rigidbody rb;
 
+    public TutorialCanvas _canvas;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -69,6 +71,8 @@ public class Movement : MonoBehaviour
     public ExplosionTest _reference;
     public Finish _finishRef;
 
+
+
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.tag == "Obstacle")
@@ -92,26 +96,49 @@ public class Movement : MonoBehaviour
         if(other.gameObject.tag == "Slow")
         {
             if (Time.timeScale == 1.0f)
-                Time.timeScale = 0.5f;
+                Time.timeScale = 0.3f;
             else
                 Time.timeScale = 1.0f;
             Time.fixedDeltaTime = 0.02f * Time.timeScale;
+
+            _canvas.FadeAD();
         }
 
         if (other.gameObject.tag == "Fast")
         {
             if (Time.timeScale == 1.0f)
-                Time.timeScale = 0.5f;
+                Time.timeScale = 0.3f;
             else
                 Time.timeScale = 1.0f;
-            // Adjust fixed delta time according to timescale
-            // The fixed delta time will now be 0.02 frames per real-time second
             Time.fixedDeltaTime = 0.02f * Time.timeScale;
         }
 
-        if(other.gameObject.tag == "Finish")
+        if (other.gameObject.tag == "Jump")
+        {
+            if (Time.timeScale == 1.0f)
+                Time.timeScale = 0.3f;
+            else
+                Time.timeScale = 1.0f;
+            Time.fixedDeltaTime = 0.02f * Time.timeScale;
+
+            _canvas.FadeJump();
+        }
+
+        if (other.gameObject.tag == "Finish")
         {
             _finishRef.FinishEx();
+
+            if (Time.timeScale == 1.0f)
+                Time.timeScale = 0.3f;
+            else
+                Time.timeScale = 1.0f;
+            Time.fixedDeltaTime = 0.02f * Time.timeScale;
+
+            GetComponent<Movement>().enabled = false;
+
+            _reference.Explode();
+
+            //speed = 0;
         }
     }
 
