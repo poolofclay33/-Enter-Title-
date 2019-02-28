@@ -16,6 +16,8 @@ public class Movement : MonoBehaviour
 
     public TutorialCanvas _canvas;
 
+    public GameObject _finishCam;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -135,6 +137,10 @@ public class Movement : MonoBehaviour
             Time.fixedDeltaTime = 0.02f * Time.timeScale;
 
             GetComponent<Movement>().enabled = false;
+
+            _finishCam.GetComponent<Camera>().enabled = true;
+
+            _finishCam.GetComponent<Animator>().Play("FinishLevel");
 
             _reference.Explode();
 
