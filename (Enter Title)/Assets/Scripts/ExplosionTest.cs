@@ -38,8 +38,6 @@ public class ExplosionTest : MonoBehaviour
 
     public void Explode()
     {
-        Debug.Log("DSLKFJEKLJEFKL");
-
         GetComponent<MeshRenderer>().enabled = false;
         GetComponent<BoxCollider>().enabled = false;
 

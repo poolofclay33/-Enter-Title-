@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using EZCameraShake;
 
 public class Movement : MonoBehaviour
 {
@@ -79,12 +80,16 @@ public class Movement : MonoBehaviour
     {
         if(other.gameObject.tag == "Obstacle")
         {
+            CameraShaker.Instance.ShakeOnce(4f, 4f, .1f, 1f);
+
             _reference.Explode();
 
-            //_cam.GetComponent<FollowPlayer>().enabled = false;
-            _cam.GetComponent<Camera>().enabled = false;
+           // _shakeInstance.StartFadeOut(3f);
 
-            _deathCam.GetComponent<Camera>().enabled = true;
+            //_cam.GetComponent<FollowPlayer>().enabled = false;
+           //_cam.GetComponent<Camera>().enabled = false;
+
+           // _deathCam.GetComponent<Camera>().enabled = true;
 
             _deathCam.GetComponent<Animator>().Play("PanOut");
 
@@ -138,13 +143,11 @@ public class Movement : MonoBehaviour
 
             GetComponent<Movement>().enabled = false;
 
-            _finishCam.GetComponent<Camera>().enabled = true;
+            //_cam.GetComponent<Camera>().enabled = false;
 
-            _finishCam.GetComponent<Animator>().Play("FinishLevel");
+            //_cam.GetComponent<Animator>().Play("FinishLevel");
 
             _reference.Explode();
-
-            //speed = 0;
         }
     }
 

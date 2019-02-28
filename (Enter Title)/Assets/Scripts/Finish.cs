@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Finish : MonoBehaviour
 {
+    public Material _highlight;
+
     public GameObject _cube1;
     public GameObject _cube2;
     public GameObject _cube3;
@@ -40,6 +42,21 @@ public class Finish : MonoBehaviour
         _cube12.SetActive(true);
         _cube13.SetActive(true);
         _cube14.SetActive(true);
+
+        _cube1.GetComponent<Renderer>().material = _highlight;
+        _cube2.GetComponent<Renderer>().material = _highlight;
+        _cube3.GetComponent<Renderer>().material = _highlight;
+        _cube4.GetComponent<Renderer>().material = _highlight;
+        _cube5.GetComponent<Renderer>().material = _highlight;
+        _cube6.GetComponent<Renderer>().material = _highlight;
+        _cube7.GetComponent<Renderer>().material = _highlight;
+        _cube8.GetComponent<Renderer>().material = _highlight;
+        _cube9.GetComponent<Renderer>().material = _highlight;
+        _cube10.GetComponent<Renderer>().material = _highlight;
+        _cube11.GetComponent<Renderer>().material = _highlight;
+        _cube12.GetComponent<Renderer>().material = _highlight;
+        _cube13.GetComponent<Renderer>().material = _highlight;
+        _cube14.GetComponent<Renderer>().material = _highlight;
 
         _cube1.GetComponent<Rigidbody>().AddForce(Vector3.right * thrust);
         _cube2.GetComponent<Rigidbody>().AddForce(Vector3.right * thrust);
