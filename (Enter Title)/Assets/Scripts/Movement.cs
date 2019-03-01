@@ -18,6 +18,8 @@ public class Movement : MonoBehaviour
 
     public TutorialCanvas _canvas;
 
+    public ParticleSystem _pickupParticle;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -160,6 +162,11 @@ public class Movement : MonoBehaviour
             _reference.Explode();
 
             StartCoroutine("EndTutorial");
+        }
+
+        if (other.gameObject.tag == "Pickup")
+        {
+            _pickupParticle.Play();
         }
     }
 
