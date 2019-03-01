@@ -12,12 +12,11 @@ public class Movement : MonoBehaviour
 
     public GameObject _cam;
     public GameObject _deathCam;
+    public GameObject _finishCam;
 
     Rigidbody rb;
 
     public TutorialCanvas _canvas;
-
-    public GameObject _finishCam;
 
     private void Start()
     {
@@ -45,6 +44,13 @@ public class Movement : MonoBehaviour
             {
                 transform.Translate(0f, 0f, 1f);
                 Mathf.RoundToInt(transform.position.z);
+
+                //float _moveLeft = Input.GetAxisRaw("Horizontal");
+                //float _moveRight = Input.GetAxisRaw("Vertical");
+
+                //Vector3 movement = new Vector3(_moveLeft, 0.0f, _moveRight);
+
+                //rb.AddForce(movement * speed);
             }
         }
 
@@ -113,11 +119,8 @@ public class Movement : MonoBehaviour
 
         if (other.gameObject.tag == "Fast")
         {
-            if (Time.timeScale == 1.0f)
-                Time.timeScale = 0.3f;
-            else
-                Time.timeScale = 1.0f;
-            Time.fixedDeltaTime = 0.02f * Time.timeScale;
+            Time.timeScale = 1.0f;
+            //Time.fixedDeltaTime = 0.02f * Time.timeScale;
         }
 
         if (other.gameObject.tag == "Jump")
@@ -133,21 +136,30 @@ public class Movement : MonoBehaviour
 
         if (other.gameObject.tag == "Finish")
         {
+            //_cam.GetComponent<FollowPlayer>().enabled = false;
+
+            //_cam.GetComponent<Animator>().Play("FinishLevel");
+
+            _cam.GetComponent<Camera>().enabled = false;
+            _finishCam.GetComponent<Camera>().enabled = true;
+
+            _finishCam.GetComponent<Animator>().Play("FinishLevel");
+
             _finishRef.FinishEx();
 
-            if (Time.timeScale == 1.0f)
-                Time.timeScale = 0.3f;
-            else
-                Time.timeScale = 1.0f;
-            Time.fixedDeltaTime = 0.02f * Time.timeScale;
+            //if (Time.timeScale == 1.0f)
+            //    Time.timeScale = 0.3f;
+            //else
+            //    Time.timeScale = 1.0f;
+            //Time.fixedDeltaTime = 0.02f * Time.timeScale;
 
             GetComponent<Movement>().enabled = false;
 
             //_cam.GetComponent<Camera>().enabled = false;
 
-            //_cam.GetComponent<Animator>().Play("FinishLevel");
-
             _reference.Explode();
+
+            StartCoroutine("EndTutorial");
         }
     }
 
@@ -156,5 +168,12 @@ public class Movement : MonoBehaviour
         yield return new WaitForSeconds(3f);
 
         Scene scene = SceneManager.GetActiveScene(); SceneManager.LoadScene(scene.name);
+    }
+
+    IEnumerator EndTutorial()
+    {
+        yield return new WaitForSeconds(4f);
+
+        _canvas.GetComponent<Animator>().Play("EndTutorial");
     }
 }

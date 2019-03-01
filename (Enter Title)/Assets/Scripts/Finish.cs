@@ -1,10 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using EZCameraShake;
 
 public class Finish : MonoBehaviour
 {
     public Material _highlight;
+
+    public ParticleSystem _particle;
 
     public GameObject _cube1;
     public GameObject _cube2;
@@ -27,6 +30,10 @@ public class Finish : MonoBehaviour
     {
         GetComponent<MeshRenderer>().enabled = false;
         //GetComponent<BoxCollider>().enabled = false;
+
+        _particle.Play();
+
+        StartCoroutine("SlowTime");
 
         _cube1.SetActive(true);
         _cube2.SetActive(true);
@@ -72,5 +79,16 @@ public class Finish : MonoBehaviour
         _cube12.GetComponent<Rigidbody>().AddForce(Vector3.right * thrust);
         _cube13.GetComponent<Rigidbody>().AddForce(Vector3.right * thrust);
         _cube14.GetComponent<Rigidbody>().AddForce(Vector3.right * thrust);
+    }
+
+    IEnumerator SlowTime()
+    {
+        //CameraShaker.Instance.ShakeOnce(3f, 1f, .1f, 3f);
+
+        Time.timeScale = 0.2f;
+
+        yield return new WaitForSeconds(0.4f);
+
+        Time.timeScale = 1.0f;
     }
 }
