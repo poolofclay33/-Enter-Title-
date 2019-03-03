@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 0.781
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.14080144, g: 0.1762824, b: 0.23970652, a: 0.781}
+  m_IndirectSpecularColor: {r: 0.1408013, g: 0.17628212, b: 0.23970601, a: 0.781}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1378,6 +1378,12 @@ MonoBehaviour:
   _cube13: {fileID: 158175766}
   _cube14: {fileID: 158175765}
   thrust: 300
+--- !u!4 &158175812 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400010, guid: c4397b5bc2c7d483e8b581fba6472ffa,
+    type: 3}
+  m_PrefabInstance: {fileID: 158175764}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &158175854 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400028, guid: c4397b5bc2c7d483e8b581fba6472ffa,
@@ -2033,6 +2039,7 @@ MonoBehaviour:
   _deathCam: {fileID: 0}
   _finishCam: {fileID: 0}
   _canvas: {fileID: 0}
+  _pickupParticle: {fileID: 0}
   _reference: {fileID: 0}
   _finishRef: {fileID: 0}
 --- !u!114 &401576779
@@ -4283,6 +4290,7 @@ MonoBehaviour:
   _deathCam: {fileID: 1535678186}
   _finishCam: {fileID: 739999981}
   _canvas: {fileID: 136998976}
+  _pickupParticle: {fileID: 0}
   _reference: {fileID: 1104815348}
   _finishRef: {fileID: 158175811}
 --- !u!114 &1104815347
@@ -6211,12 +6219,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1697308454}
-  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0.335, y: 0, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
+  m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 0.3350067, y: 0, z: 0}
+  m_LocalScale: {x: 0.3000003, y: 0.3, z: 0.30000025}
   m_Children: []
-  m_Father: {fileID: 158175854}
-  m_RootOrder: 15
+  m_Father: {fileID: 158175812}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!199 &1697308456
 ParticleSystemRenderer:
