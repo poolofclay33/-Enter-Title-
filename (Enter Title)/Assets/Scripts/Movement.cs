@@ -20,7 +20,7 @@ public class Movement : MonoBehaviour
 
     public ParticleSystem _pickupParticle;
 
-    private void Start()
+    void Start()
     {
         rb = GetComponent<Rigidbody>();
     }
@@ -156,6 +156,7 @@ public class Movement : MonoBehaviour
             //Time.fixedDeltaTime = 0.02f * Time.timeScale;
 
             GetComponent<Movement>().enabled = false;
+            GetComponent<Jump>().enabled = false;
 
             //_cam.GetComponent<Camera>().enabled = false;
 
@@ -181,6 +182,17 @@ public class Movement : MonoBehaviour
     {
         yield return new WaitForSeconds(4f);
 
-        _canvas.GetComponent<Animator>().Play("EndTutorial");
+        Scene currentScene = SceneManager.GetActiveScene();
+
+        string sceneName = currentScene.name;
+
+        if(sceneName != "Tutorial")
+        {
+            _canvas.GetComponent<Animator>().Play("FinishedLevel");
+        }
+        else
+        {
+            _canvas.GetComponent<Animator>().Play("EndTutorial");
+        }
     }
 }
