@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class TutorialCanvas : MonoBehaviour
 {
+    public GameObject _door;
 
     public void Start()
     {
@@ -18,5 +19,10 @@ public class TutorialCanvas : MonoBehaviour
     public void FadeJump()
     {
         GetComponent<Animator>().Play("FadeInJump");
+    }
+
+    public void CloseDoor()
+    {
+        _door.GetComponent<Animator>().Play("CloseDoor(Tutorial)");
     }
 }

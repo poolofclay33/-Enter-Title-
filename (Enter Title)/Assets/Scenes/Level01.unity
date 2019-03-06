@@ -1714,38 +1714,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 731893486, guid: 690631c4a43ce4a359ccc3fc280f5b3f, type: 3}
-      propertyPath: _cam
-      value: 
-      objectReference: {fileID: 1374437797}
-    - target: {fileID: 731893486, guid: 690631c4a43ce4a359ccc3fc280f5b3f, type: 3}
-      propertyPath: _finishCam
-      value: 
-      objectReference: {fileID: 1369417122}
-    - target: {fileID: 731893486, guid: 690631c4a43ce4a359ccc3fc280f5b3f, type: 3}
-      propertyPath: _canvas
-      value: 
-      objectReference: {fileID: 1060241981}
-    - target: {fileID: 731893486, guid: 690631c4a43ce4a359ccc3fc280f5b3f, type: 3}
-      propertyPath: _pickupParticle
-      value: 
-      objectReference: {fileID: 1578606029}
-    - target: {fileID: 731893486, guid: 690631c4a43ce4a359ccc3fc280f5b3f, type: 3}
-      propertyPath: _finishRef
-      value: 
-      objectReference: {fileID: 711286279}
-    - target: {fileID: 731893486, guid: 690631c4a43ce4a359ccc3fc280f5b3f, type: 3}
-      propertyPath: speed
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 731893486, guid: 690631c4a43ce4a359ccc3fc280f5b3f, type: 3}
-      propertyPath: _deathCam
-      value: 
-      objectReference: {fileID: 731893454}
-    - target: {fileID: 731893486, guid: 690631c4a43ce4a359ccc3fc280f5b3f, type: 3}
-      propertyPath: _reference
-      value: 
-      objectReference: {fileID: 731893455}
     - target: {fileID: 731893456, guid: 690631c4a43ce4a359ccc3fc280f5b3f, type: 3}
       propertyPath: _cube2
       value: 
@@ -1806,6 +1774,42 @@ PrefabInstance:
       propertyPath: jumpVelocity
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 731893486, guid: 690631c4a43ce4a359ccc3fc280f5b3f, type: 3}
+      propertyPath: _cam
+      value: 
+      objectReference: {fileID: 1374437797}
+    - target: {fileID: 731893486, guid: 690631c4a43ce4a359ccc3fc280f5b3f, type: 3}
+      propertyPath: _finishCam
+      value: 
+      objectReference: {fileID: 1369417122}
+    - target: {fileID: 731893486, guid: 690631c4a43ce4a359ccc3fc280f5b3f, type: 3}
+      propertyPath: _canvas
+      value: 
+      objectReference: {fileID: 1060241981}
+    - target: {fileID: 731893486, guid: 690631c4a43ce4a359ccc3fc280f5b3f, type: 3}
+      propertyPath: _pickupParticle
+      value: 
+      objectReference: {fileID: 1578606029}
+    - target: {fileID: 731893486, guid: 690631c4a43ce4a359ccc3fc280f5b3f, type: 3}
+      propertyPath: _finishRef
+      value: 
+      objectReference: {fileID: 711286279}
+    - target: {fileID: 731893486, guid: 690631c4a43ce4a359ccc3fc280f5b3f, type: 3}
+      propertyPath: speed
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 731893486, guid: 690631c4a43ce4a359ccc3fc280f5b3f, type: 3}
+      propertyPath: _deathCam
+      value: 
+      objectReference: {fileID: 731893454}
+    - target: {fileID: 731893486, guid: 690631c4a43ce4a359ccc3fc280f5b3f, type: 3}
+      propertyPath: _reference
+      value: 
+      objectReference: {fileID: 731893455}
+    - target: {fileID: 731893486, guid: 690631c4a43ce4a359ccc3fc280f5b3f, type: 3}
+      propertyPath: _pickupRef
+      value: 
+      objectReference: {fileID: 1953499285}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 690631c4a43ce4a359ccc3fc280f5b3f, type: 3}
 --- !u!1 &731893440 stripped
@@ -5176,6 +5180,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b114bd5f3b1084b71b975d4d9e176661, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _collected: 0
 --- !u!1 &2008283273
 GameObject:
   m_ObjectHideFlags: 0
@@ -5844,12 +5849,12 @@ PrefabInstance:
     - target: {fileID: 41396231723923881, guid: 907e226b7a0304d048ece9a4af056177,
         type: 3}
       propertyPath: m_havePropertiesChanged
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 41396231723923881, guid: 907e226b7a0304d048ece9a4af056177,
         type: 3}
       propertyPath: m_isInputParsingRequired
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 41396231723923881, guid: 907e226b7a0304d048ece9a4af056177,
         type: 3}
@@ -5859,7 +5864,7 @@ PrefabInstance:
     - target: {fileID: 41396231723923881, guid: 907e226b7a0304d048ece9a4af056177,
         type: 3}
       propertyPath: m_fontColor32.rgba
-      value: 74711038
+      value: 7602174
       objectReference: {fileID: 0}
     - target: {fileID: 41396231723923881, guid: 907e226b7a0304d048ece9a4af056177,
         type: 3}
@@ -5874,7 +5879,7 @@ PrefabInstance:
     - target: {fileID: 41396230794763404, guid: 907e226b7a0304d048ece9a4af056177,
         type: 3}
       propertyPath: m_isInputParsingRequired
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 41396230794763404, guid: 907e226b7a0304d048ece9a4af056177,
         type: 3}
@@ -5884,7 +5889,7 @@ PrefabInstance:
     - target: {fileID: 41396230794763404, guid: 907e226b7a0304d048ece9a4af056177,
         type: 3}
       propertyPath: m_fontColor32.rgba
-      value: 4294967295
+      value: 16777215
       objectReference: {fileID: 0}
     - target: {fileID: 41396230794763404, guid: 907e226b7a0304d048ece9a4af056177,
         type: 3}
@@ -6080,7 +6085,7 @@ PrefabInstance:
     - target: {fileID: 925277437662988482, guid: 79b56b9f5938f49a0b079c4a282ee222,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.425
       objectReference: {fileID: 0}
     - target: {fileID: 925277437662988482, guid: 79b56b9f5938f49a0b079c4a282ee222,
         type: 3}
@@ -6130,6 +6135,16 @@ PrefabInstance:
     - target: {fileID: 925277437470394831, guid: 79b56b9f5938f49a0b079c4a282ee222,
         type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 925277437662988492, guid: 79b56b9f5938f49a0b079c4a282ee222,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 925277437662988495, guid: 79b56b9f5938f49a0b079c4a282ee222,
+        type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:

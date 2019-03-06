@@ -17,6 +17,7 @@ public class Movement : MonoBehaviour
     Rigidbody rb;
 
     public TutorialCanvas _canvas;
+    public RotatePickup _pickupRef;
 
     public ParticleSystem _pickupParticle;
 
@@ -186,10 +187,16 @@ public class Movement : MonoBehaviour
 
         string sceneName = currentScene.name;
 
-        if(sceneName != "Tutorial")
+        if(sceneName != "Tutorial" && _pickupRef._collected == true)
+        {
+            _canvas.GetComponent<Animator>().Play("FinishedLevel(Orb)");
+        }
+
+        else if(sceneName != "Tutorial" && _pickupRef._collected == false)
         {
             _canvas.GetComponent<Animator>().Play("FinishedLevel");
         }
+
         else
         {
             _canvas.GetComponent<Animator>().Play("EndTutorial");
