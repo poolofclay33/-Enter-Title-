@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 public class LevelMaster : MonoBehaviour
 {
     public Material _yellow;
-    public Material _blue;
 
     public GameObject _cube1;
     public GameObject _playerCube;
@@ -36,13 +35,8 @@ public class LevelMaster : MonoBehaviour
         GetComponent<Animator>().enabled = false;
 
         _cube1.GetComponent<Renderer>().material = _yellow;
+
         //_cube1.GetComponentInChildren<ParticleSystem>().Play();
         //SceneManager.LoadScene("Level01");
-        //_cube1.GetComponent<MeshRenderer>().material = _yellow;
-    }
-
-    public void TestMat()
-    {
-        _cube1.GetComponent<Renderer>().material = _blue;
     }
 }
