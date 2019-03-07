@@ -1,0 +1,114 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class LevelSelectCube : MonoBehaviour
+{
+    private Vector3 offset;
+
+    public GameObject player;
+
+    public GameObject center;
+
+    public GameObject up;
+    public GameObject down;
+    public GameObject left;
+    public GameObject right;
+
+    public int step = 9;
+
+    public float speed = (float)0.01;
+
+    bool input = true;
+
+    public LevelMaster _levelMasterRef;
+
+    private void Update()
+    {
+        if(input == true)
+        {
+            if(Input.GetKeyDown(KeyCode.W))
+            {
+                StartCoroutine("moveUp");
+                input = false;
+            }
+
+            if (Input.GetKeyDown(KeyCode.S))
+            {
+                StartCoroutine("moveDown");
+                input = false;
+            }
+
+            if (Input.GetKeyDown(KeyCode.A))
+            {
+                StartCoroutine("moveLeft");
+                input = false;
+            }
+
+            if (Input.GetKeyDown(KeyCode.D))
+            {
+                StartCoroutine("moveRight");
+                input = false;
+            }
+        }
+
+        if(cube1Clicked && Input.GetKeyDown(KeyCode.Space))
+        {
+            _levelMasterRef.Level1();
+        }
+    }
+
+    IEnumerator moveUp()
+    {
+        for (int i = 0; i < (90 / step); i++)
+        {
+            player.transform.RotateAround(up.transform.position, Vector3.right, step);
+            yield return new WaitForSeconds(speed);
+        }
+        center.transform.position = player.transform.position;
+        input = true;
+    }
+
+    IEnumerator moveDown()
+    {
+        for (int i = 0; i < (90 / step); i++)
+        {
+            player.transform.RotateAround(down.transform.position, Vector3.left, step);
+            yield return new WaitForSeconds(speed);
+        }
+        center.transform.position = player.transform.position;
+        input = true;
+    }
+
+    IEnumerator moveLeft()
+    {
+        for (int i = 0; i < (90 / step); i++)
+        {
+            player.transform.RotateAround(left.transform.position, Vector3.forward, step);
+            yield return new WaitForSeconds(speed);
+        }
+        center.transform.position = player.transform.position;
+        input = true;
+    }
+
+    IEnumerator moveRight()
+    {
+        for (int i = 0; i < (90 / step); i++)
+        {
+            player.transform.RotateAround(right.transform.position, Vector3.back, step);
+            yield return new WaitForSeconds(speed);
+        }
+        center.transform.position = player.transform.position;
+        input = true;
+    }
+
+    private bool cube1Clicked = false;
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.name == "Cube1")
+        {
+            cube1Clicked = true;
+        }
+    }
+}

@@ -11,6 +11,8 @@ TagManager:
   - Slow
   - Ground
   - Pickup
+  - FxTemporaire
+  - OnLevel
   layers:
   - Default
   - TransparentFX
