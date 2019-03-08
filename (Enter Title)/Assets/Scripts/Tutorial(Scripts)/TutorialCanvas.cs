@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TutorialCanvas : MonoBehaviour
 {
@@ -8,7 +9,9 @@ public class TutorialCanvas : MonoBehaviour
 
     public void Start()
     {
-        GetComponent<Animator>().Play("Welcome");
+        GetComponent<Animator>().Play("FadeStartingLevel");
+
+        StartCoroutine("Wait");
     }
 
     public void FadeAD()
@@ -24,5 +27,16 @@ public class TutorialCanvas : MonoBehaviour
     public void CloseDoor()
     {
         _door.GetComponent<Animator>().Play("CloseDoor(Tutorial)");
+    }
+
+    IEnumerator Wait()
+    {
+        yield return new WaitForSeconds(1f);
+        GetComponent<Animator>().Play("Welcome");
+    }
+
+    public void LoadLevelSelect()
+    {
+        SceneManager.LoadScene("LevelSelect");
     }
 }
