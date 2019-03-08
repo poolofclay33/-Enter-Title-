@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Jump : MonoBehaviour
 {
-    [Range(1, 10)]
+    [Range(1, 20)]
     public float jumpVelocity;
 
     public bool grounded = true;
@@ -12,7 +12,7 @@ public class Jump : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetButtonDown("Jump") && grounded == true)
+        if(Input.GetKeyDown(KeyCode.Space) && grounded == true)
         {
             GetComponent<Rigidbody>().velocity = Vector3.up * jumpVelocity;
         }

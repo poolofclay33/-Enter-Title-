@@ -39,4 +39,16 @@ public class TutorialCanvas : MonoBehaviour
     {
         SceneManager.LoadScene("LevelSelect");
     }
+
+    public void FinishLevel()
+    {
+        GetComponent<Animator>().Play("FadeLevelCanvas");
+        StartCoroutine("Wait4Anim");
+    }
+
+    IEnumerator Wait4Anim()
+    {
+        yield return new WaitForSeconds(2.5f);
+        SceneManager.LoadScene("LevelSelect");
+    }
 }
