@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.05573959, g: 0.34155348, b: 0.9833995, a: 1}
+  m_IndirectSpecularColor: {r: 0.055577442, g: 0.3424229, b: 0.9833995, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2935,8 +2935,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 855037198}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -121.4251, y: 1.3474, z: 2.8247852}
-  m_LocalScale: {x: 375.7266, y: 0.19480813, z: 3}
+  m_LocalPosition: {x: -121.4251, y: 1.22, z: 2.8247852}
+  m_LocalScale: {x: 375.7266, y: 0.4, z: 3}
   m_Children: []
   m_Father: {fileID: 2097909092}
   m_RootOrder: 0
@@ -5453,7 +5453,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1664295871}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 87acdb77b319b43dc8295adfa80570e9, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -7484,6 +7484,7 @@ MonoBehaviour:
     rgba: 16776622
   m_fontColor: {r: 0.6839622, g: 0.9925638, b: 1, a: 0}
   m_enableVertexGradient: 0
+  m_colorMode: 3
   m_fontColorGradient:
     topLeft: {r: 1, g: 1, b: 1, a: 1}
     topRight: {r: 1, g: 1, b: 1, a: 1}
