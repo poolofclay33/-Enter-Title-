@@ -23,29 +23,34 @@ public class LevelSelectCube : MonoBehaviour
 
     public LevelMaster _levelMasterRef;
 
+    private void Start()
+    {
+        LoadPLayer();
+    }
+
     private void Update()
     {
         if(input == true)
         {
-            if(Input.GetKeyDown(KeyCode.W))
+            if(Input.GetKey(KeyCode.W))
             {
                 StartCoroutine("moveUp");
                 input = false;
             }
 
-            if (Input.GetKeyDown(KeyCode.S))
+            if (Input.GetKey(KeyCode.S))
             {
                 StartCoroutine("moveDown");
                 input = false;
             }
 
-            if (Input.GetKeyDown(KeyCode.A))
+            if (Input.GetKey(KeyCode.A))
             {
                 StartCoroutine("moveLeft");
                 input = false;
             }
 
-            if (Input.GetKeyDown(KeyCode.D))
+            if (Input.GetKey(KeyCode.D))
             {
                 StartCoroutine("moveRight");
                 input = false;
@@ -54,6 +59,7 @@ public class LevelSelectCube : MonoBehaviour
 
         if(cube1Clicked && Input.GetKeyDown(KeyCode.Space))
         {
+            SavePlayer();
             _levelMasterRef.Level1();
         }
     }
@@ -110,5 +116,21 @@ public class LevelSelectCube : MonoBehaviour
         {
             cube1Clicked = true;
         }
+    }
+
+    public void SavePlayer()
+    {
+        SavingLoading.SavePlayer(this);
+    }
+
+    public void LoadPLayer()
+    {
+        PlayerData data = SavingLoading.LoadPlayer();
+        Vector3 position;
+        position.x = data.position[0];
+        position.y = data.position[1];
+        position.z = data.position[2];
+
+        transform.position = position;
     }
 }

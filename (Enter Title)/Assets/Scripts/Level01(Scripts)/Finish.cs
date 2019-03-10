@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using EZCameraShake;
+using UnityEngine.SceneManagement;
 
 public class Finish : MonoBehaviour
 {
@@ -25,6 +26,8 @@ public class Finish : MonoBehaviour
     public GameObject _cube14;
 
     public float thrust;
+
+    public static bool[] _levelFinished = new bool[15];
 
     public void FinishEx()
     {
@@ -79,6 +82,15 @@ public class Finish : MonoBehaviour
         _cube12.GetComponent<Rigidbody>().AddForce(Vector3.right * thrust);
         _cube13.GetComponent<Rigidbody>().AddForce(Vector3.right * thrust);
         _cube14.GetComponent<Rigidbody>().AddForce(Vector3.right * thrust);
+
+        Scene currentScene = SceneManager.GetActiveScene();
+
+        string sceneName = currentScene.name;
+
+        if(sceneName == "Level01")
+        {
+            _levelFinished[0] = true;
+        }
     }
 
     IEnumerator SlowTime()

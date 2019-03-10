@@ -4,17 +4,22 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public GameObject _canvas;
+    bool[] arr = new bool[15];
+    public GameObject _levelManager;
 
-    // Start is called before the first frame update
-    void Start()
+    public Material _levelComplete;
+
+    public GameObject[] _levelCubes;
+
+    private void Update()
     {
-        //.GetComponent<Animator>().Play("LevelDescription");
+        if(Finish._levelFinished[0] == true)
+        {
+            _levelManager.GetComponent<Animator>().Play("Level2Anim");
+            _levelCubes[0].GetComponent<Renderer>().material = _levelComplete;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
 
-    }
+
 }
