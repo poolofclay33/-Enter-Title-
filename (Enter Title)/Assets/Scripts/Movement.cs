@@ -23,6 +23,8 @@ public class Movement : MonoBehaviour
 
     public Material _pink;
 
+    public bool _gravity = false;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -74,33 +76,39 @@ public class Movement : MonoBehaviour
         //jump
         if (rb.velocity.y < 0)
         {
-            rb.velocity += Vector3.up * Physics.gravity.y * (fallMulti - 1) * Time.deltaTime;
+            if(_gravity == false)
+            {
+                rb.velocity += Vector3.up * Physics.gravity.y * (fallMulti - 1) * Time.deltaTime;
+            }
+            else if(_gravity == true && !Input.GetButton("Jump"))
+            {
+                rb.velocity += Vector3.up * Physics.gravity.y * (3 - 1) * Time.deltaTime;
+            }
         }
         else if (rb.velocity.y > 0 && !Input.GetButton("Jump"))
         {
-            rb.velocity += Vector3.up * Physics.gravity.y * (lowJump - 1) * Time.deltaTime;
+            if(_gravity == false)
+            {
+                rb.velocity += Vector3.up * Physics.gravity.y * (lowJump - 1) * Time.deltaTime;
+            }
+            else 
+            {
+                rb.velocity += Vector3.up * Physics.gravity.y * (3 - 1) * Time.deltaTime;
+            }
         }
     }
 
     public ExplosionTest _reference;
     public Finish _finishRef;
 
-
-
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.tag == "Obstacle")
         {
-            CameraShaker.Instance.ShakeOnce(4f, 4f, .1f, 1f);
+            CameraShaker.Instance.ShakeOnce(1f, 1f, .2f, 1.5f);
+            Debug.Log("SHAKE");
 
             _reference.Explode();
-
-           // _shakeInstance.StartFadeOut(3f);
-
-            //_cam.GetComponent<FollowPlayer>().enabled = false;
-           //_cam.GetComponent<Camera>().enabled = false;
-
-           // _deathCam.GetComponent<Camera>().enabled = true;
 
             _deathCam.GetComponent<Animator>().Play("PanOut");
 
@@ -177,11 +185,23 @@ public class Movement : MonoBehaviour
         {
             GetComponent<MeshRenderer>().material = _pink;
         }
+
+        if(other.gameObject.tag == "Gravity")
+        {
+            _cam.GetComponent<Animator>().Play("GravitySwitchCam");
+            Physics.gravity *= -1;
+            _gravity = true;
+        }
     }
 
     IEnumerator Reload()
     {
         yield return new WaitForSeconds(3f);
+
+        if(_gravity == true)
+        {
+            Physics.gravity *= -1;
+        }
 
         Scene scene = SceneManager.GetActiveScene(); SceneManager.LoadScene(scene.name);
     }

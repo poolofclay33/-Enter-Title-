@@ -1,8 +1,9 @@
-﻿Shader "Custom/Water/Height/DiffuseColorWater"
+﻿Shader "Custom/Water/Height/DiffuseWater"
 {
 	Properties
 	{
 		_Color ("Color", Color) = (1, 1, 1, 1)
+		_MainTex ("Texture", 2D) = "white" {}
 		
 		[Space(20)]
 		_WaterColor ("Water color", Color) = (1, 1, 1, 1)
@@ -68,9 +69,10 @@
 			};
 
 			fixed4 _Color;
+			sampler2D _MainTex;
+			float4 _MainTex_ST;
 
 			sampler2D _WaterTex;
-			float4 _WaterTex_ST;
 			fixed2 _Tiling;
 			fixed4 _WaterColor;
 
@@ -114,7 +116,7 @@
 
 			fixed4 MainColor(v2f i)
 			{
-				fixed4 mainCol = _Color;
+				fixed4 mainCol = tex2D(_MainTex, i.uv) * _Color;
 #if LIGHTMAP_ON
 				mainCol.rgb *= LightmapColor(i.lightmap_uv);
 #else
@@ -131,9 +133,9 @@
 				o.worldPos = mul(UNITY_MATRIX_M, v.vertex);
 				o.vertex = mul(UNITY_MATRIX_VP, o.worldPos);
 				
-				o.uv = TRANSFORM_TEX(v.uv, _WaterTex);
+				o.uv = TRANSFORM_TEX(v.uv, _MainTex);
 				o.camHeightOverWater = _WorldSpaceCameraPos.y - _WaterHeight;
-
+				
 #if LIGHTMAP_ON
 				o.lightmap_uv = v.lightmap_uv.xy * unity_LightmapST.xy + unity_LightmapST.zw;
 #else

@@ -1,4 +1,4 @@
-﻿Shader "Custom/Water/TwoSide/Height/DiffuseColorWater"
+﻿Shader "Custom/Water/Height/DiffuseColorWater"
 {
 	Properties
 	{
@@ -31,7 +31,6 @@
 	{
 		Tags { "RenderType" = "Opaque" "BW" = "TrueProbes" "LightMode" = "ForwardBase" }
 		LOD 100
-		Cull Off
 
 		Pass
 		{

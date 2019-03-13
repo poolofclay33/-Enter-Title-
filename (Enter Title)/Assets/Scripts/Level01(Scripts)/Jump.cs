@@ -14,7 +14,14 @@ public class Jump : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Space) && grounded == true)
         {
-            GetComponent<Rigidbody>().velocity = Vector3.up * jumpVelocity;
+            if(GetComponent<Movement>()._gravity == false)
+            {
+                GetComponent<Rigidbody>().velocity = Vector3.up * jumpVelocity;
+            }
+            else
+            {
+                GetComponent<Rigidbody>().velocity = Vector3.down * jumpVelocity;
+            }
         }
     }
 

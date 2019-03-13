@@ -14,12 +14,15 @@ public class GameManager : MonoBehaviour
     public Canvas _pauseCanvas;
     private bool _canOn = true;
 
+    public int _level1;
+    public bool _level01;
+
     private void Update()
     {
         if(Finish._levelFinished[0] == true)
         {
-            _levelManager.GetComponent<Animator>().Play("Level2Anim");
-            _levelCubes[0].GetComponent<Renderer>().material = _levelComplete;
+            //_levelManager.GetComponent<Animator>().Play("Level2Anim");
+            //_levelCubes[0].GetComponent<Renderer>().material = _levelComplete;
         }
 
         if(Input.GetKeyDown(KeyCode.Escape) && _canOn == true)
@@ -35,7 +38,4 @@ public class GameManager : MonoBehaviour
             _canOn = true;
         }
     }
-
-
-
 }

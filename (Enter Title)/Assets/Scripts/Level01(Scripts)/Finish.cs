@@ -10,6 +10,8 @@ public class Finish : MonoBehaviour
 
     public ParticleSystem _particle;
 
+    public GameObject _gameManager;
+
     public GameObject _cube1;
     public GameObject _cube2;
     public GameObject _cube3;
@@ -90,6 +92,10 @@ public class Finish : MonoBehaviour
         if(sceneName == "Level01")
         {
             _levelFinished[0] = true;
+
+            //ES3.Save<int>("myInteger", 123);
+            ES3.Save<bool>("Level01", true);
+            Debug.Log("LEVEL 01 COMPLETE");
         }
     }
 

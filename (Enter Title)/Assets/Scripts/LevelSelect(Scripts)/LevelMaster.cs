@@ -15,6 +15,8 @@ public class LevelMaster : MonoBehaviour
     public GameObject _loadingScreen;
     public Slider _slider;
 
+    public GameObject _gameManager;
+
     AsyncOperation async;
 
     private void Start()
@@ -45,7 +47,16 @@ public class LevelMaster : MonoBehaviour
     IEnumerator Wait()
     {
         yield return new WaitForSeconds(2f);
-        GetComponent<Animator>().Play("BeginLevelSelect");
+
+        if (ES3.KeyExists("Level01") == true)
+        {
+            int myInteger = ES3.Load<int>("myInteger");
+        }
+        else 
+        {
+            GetComponent<Animator>().Play("BeginLevelSelect");
+            Debug.Log("HERE");
+        }
         yield return new WaitForSeconds(4.5f);
         _playerCube.GetComponent<LevelSelectCube>().enabled = true;
     }

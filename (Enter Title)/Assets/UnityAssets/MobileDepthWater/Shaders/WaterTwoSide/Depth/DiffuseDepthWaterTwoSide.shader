@@ -1,4 +1,4 @@
-﻿Shader "Custom/Water/TwoSide/Height/DiffuseWater"
+﻿Shader "Custom/Water/TwoSide/Depth/DiffuseWater"
 {
 	Properties
 	{
@@ -9,7 +9,7 @@
 		_WaterColor ("Water color", Color) = (1, 1, 1, 1)
 		_WaterTex("Water texture", 2D) = "white" {}
 		_Tiling ("Water tiling", Vector) = (1, 1, 1, 1)
-		_TextureVisibility("Texture visibility", Range(0, 1)) = 1
+		_TextureVisibility ("Texture visibility", Range(0, 1)) = 1
 
 		[Space(20)]
 		_DistTex ("Distortion", 2D) = "white" {}
@@ -19,6 +19,7 @@
 		//_DeepColor ("Water deep color", Color) = (1, 1, 1, 1)
 		_WaterHeight ("Water height", Float) = 0
 		_WaterDeep ("Water deep", Float) = 0
+		_WaterDepth ("Water depth param", Range(0, 0.1)) = 0
 		_WaterMinAlpha ("Water min alpha", Range(0, 1)) = 0
 		
 		[Space(20)]
@@ -60,11 +61,12 @@
 				float2 uv : TEXCOORD0;
 				fixed4 worldPos : TEXCOORD1;
 				fixed camHeightOverWater : TEXCOORD2;
-				UNITY_FOG_COORDS(3)
+				fixed waterDepth : TEXCOORD3;
+				UNITY_FOG_COORDS(4)
 #if LIGHTMAP_ON
-				fixed2 lightmap_uv : TEXCOORD4;
+				fixed2 lightmap_uv : TEXCOORD5;
 #else
-				fixed4 diffuseLight : TEXCOORD4;
+				fixed4 diffuseLight : TEXCOORD5;
 #endif
 				float4 vertex : SV_POSITION;
 			};
@@ -84,6 +86,7 @@
 			fixed _WaterHeight;
 			fixed _TextureVisibility;
 			fixed _WaterDeep;
+			fixed _WaterDepth;
 			fixed _WaterMinAlpha;
 
 			fixed4 _BorderColor;
@@ -135,8 +138,14 @@
 				o.vertex = mul(UNITY_MATRIX_VP, o.worldPos);
 				
 				o.uv = TRANSFORM_TEX(v.uv, _MainTex);
+
+				fixed3 camToWorldRay = o.worldPos - _WorldSpaceCameraPos;
 				o.camHeightOverWater = _WorldSpaceCameraPos.y - _WaterHeight;
-				
+
+				fixed3 rayToWaterPlane = o.camHeightOverWater / (-camToWorldRay.y) * camToWorldRay;
+				fixed depth = length(camToWorldRay - rayToWaterPlane);
+				o.waterDepth = depth * _WaterDepth * saturate(rayToWaterPlane.y - camToWorldRay.y);;
+
 #if LIGHTMAP_ON
 				o.lightmap_uv = v.lightmap_uv.xy * unity_LightmapST.xy + unity_LightmapST.zw;
 #else
@@ -145,10 +154,8 @@
 #endif
 
 #if defined(FOG_LINEAR) || defined(FOG_EXP) || defined(FOG_EXP2)
-				fixed3 camToWorldRay = o.worldPos - _WorldSpaceCameraPos;
-				fixed3 rayToWaterPlane = (o.camHeightOverWater / camToWorldRay.y * camToWorldRay);
 
-				fixed3 worldPosOnPlane = _WorldSpaceCameraPos - rayToWaterPlane;
+				fixed3 worldPosOnPlane = _WorldSpaceCameraPos + rayToWaterPlane;
 				fixed3 positionForFog = lerp(worldPosOnPlane, o.worldPos.xyz, o.worldPos.y > _WaterHeight);
 				fixed4 waterVertex = mul(UNITY_MATRIX_VP, fixed4(positionForFog, 1));
 				UNITY_TRANSFER_FOG(o, waterVertex);
@@ -162,7 +169,7 @@
 				fixed lengthUnderWater = max(0, _WaterHeight - i.worldPos.y);
 				fixed underWater = lerp(0, 1, lengthUnderWater > 0);
 				fixed borderAlpha = lerp(underWater * _BorderColor.a, 0, saturate(lengthUnderWater / _BorderWidth));
-				fixed waterAlpha = saturate(lengthUnderWater / _WaterDeep + _WaterMinAlpha);
+				fixed waterAlpha = saturate(lengthUnderWater / _WaterDeep + _WaterMinAlpha + i.waterDepth);
 
 				fixed4 mainCol = MainColor(i);
 
