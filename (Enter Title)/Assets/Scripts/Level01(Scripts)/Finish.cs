@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class Finish : MonoBehaviour
 {
     public static Finish _instance;
-    public bool _level1Done = false;
+    public static bool _level1Done = false;
 
     public Material _highlight;
 

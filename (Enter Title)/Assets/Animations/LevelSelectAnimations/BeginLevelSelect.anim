@@ -156,7 +156,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: TRAILTEST
+    path: Trail(1)
     classID: 1
     script: {fileID: 0}
   m_PPtrCurves:
@@ -198,7 +198,7 @@ AnimationClip:
       customType: 25
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 1177693418
+      path: 1534257833
       attribute: 2086281974
       script: {fileID: 0}
       typeID: 1
@@ -492,7 +492,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: TRAILTEST
+    path: Trail(1)
     classID: 1
     script: {fileID: 0}
   m_EulerEditorCurves: []

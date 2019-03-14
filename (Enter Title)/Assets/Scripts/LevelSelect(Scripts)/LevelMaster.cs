@@ -22,17 +22,15 @@ public class LevelMaster : MonoBehaviour
     private Animator _anim;
 
     public GameObject[] _trails;
+    public GameObject[] _levels;
 
-    private void Awake()
-    {
-        //_playerCube.transform.position = ES3.Load<Vector3>("cubePosition", Vector3.zero);
-    }
+    public Material _levelCompletedMat;
 
     private void Start()
     {
-        if(Finish._instance._level1Done == true)
+        if(Finish._level1Done == true)
         {
-            _trails[0].SetActive(true);
+            _trails[0].GetComponent<MeshRenderer>().enabled = true;
         }
 
         _canvas.GetComponent<Animator>().Play("FadeInLevelSelect");
@@ -68,9 +66,13 @@ public class LevelMaster : MonoBehaviour
 
         if (ES3.KeyExists("Level01") == true)
         {
-          //int myInteger = ES3.Load<int>("Level01");
+            Debug.Log("EXISts");
             bool myBool = ES3.Load<bool>("Level01");
+            GetComponent<Animator>().Play("Level01Completed");
+            yield return new WaitForSeconds(2.5f);
+            _levels[0].GetComponent<Renderer>().material = _levelCompletedMat;
             GetComponent<Animator>().Play("Level2Anim");
+            Debug.Log("HEREHERHEEH");
         }
         else 
         {
