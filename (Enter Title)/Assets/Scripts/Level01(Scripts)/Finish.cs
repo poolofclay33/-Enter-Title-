@@ -6,6 +6,9 @@ using UnityEngine.SceneManagement;
 
 public class Finish : MonoBehaviour
 {
+    public static Finish _instance;
+    public bool _level1Done = false;
+
     public Material _highlight;
 
     public ParticleSystem _particle;
@@ -92,6 +95,7 @@ public class Finish : MonoBehaviour
         if(sceneName == "Level01")
         {
             _levelFinished[0] = true;
+            _level1Done = true;
 
             //ES3.Save<int>("myInteger", 123);
             ES3.Save<bool>("Level01", true);
