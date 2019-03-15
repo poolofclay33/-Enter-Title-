@@ -25,19 +25,42 @@ public class LevelMaster : MonoBehaviour
     public GameObject[] _levels;
 
     public Material _levelCompletedMat;
+    public Material _levelCubes;
 
     private void Start()
     {
+        if(ES3.KeyExists("Level01") == true)
+        {
+            Debug.Log("EXISTS");
+            _trails[0].SetActive(true);
+            Load();
+        }
+
         if(Finish._level1Done == true)
         {
             _trails[0].GetComponent<MeshRenderer>().enabled = true;
         }
 
         _canvas.GetComponent<Animator>().Play("FadeInLevelSelect");
-        _playerCube.GetComponent<LevelSelectCube>().enabled = false;
+        _playerCube.GetComponent<TestMove>().enabled = false;
         StartCoroutine("Wait");
 
         _anim = GetComponent<Animator>();
+    }
+
+    public void Load()
+    {
+        _playerCube.transform.position = ES3.Load<Vector3>("cubePosition");
+        //_playerCube.transform.position = new Vector3(PlayerPrefs.GetFloat("PlayerX"), PlayerPrefs.GetFloat("PlayerY"), PlayerPrefs.GetFloat("PlayerZ"));
+    }
+
+    public void Save()
+    {
+        ES3.Save<Vector3>("cubePosition", _playerCube.transform.position);
+
+        //PlayerPrefs.SetFloat("PlayerX", _playerCube.transform.position.x);
+        //PlayerPrefs.SetFloat("PlayerY", _playerCube.transform.position.y);
+        //PlayerPrefs.SetFloat("PlayerZ", _playerCube.transform.position.z);
     }
 
     IEnumerator LoadingScreen()
@@ -60,27 +83,33 @@ public class LevelMaster : MonoBehaviour
 
     private bool _firstAnimDone = false;
 
+    public void Test()
+    {
+        _levels[0].GetComponent<Renderer>().material = _levelCompletedMat;
+    }
+
     IEnumerator Wait()
     {
         yield return new WaitForSeconds(2f);
 
         if (ES3.KeyExists("Level01") == true)
         {
-            Debug.Log("EXISts");
             bool myBool = ES3.Load<bool>("Level01");
             GetComponent<Animator>().Play("Level01Completed");
-            yield return new WaitForSeconds(2.5f);
-            _levels[0].GetComponent<Renderer>().material = _levelCompletedMat;
+            yield return new WaitForSeconds(1f);
+            Test();
+            yield return new WaitForSeconds(2f);
             GetComponent<Animator>().Play("Level2Anim");
-            Debug.Log("HEREHERHEEH");
+            yield return new WaitForSeconds(4.5f);
         }
         else 
         {
             GetComponent<Animator>().Play("BeginLevelSelect");
+            yield return new WaitForSeconds(3f);
+            _levels[0].GetComponent<Renderer>().material = _levelCubes;
             _firstAnimDone = true;
         }
-        yield return new WaitForSeconds(4.5f);
-        _playerCube.GetComponent<LevelSelectCube>().enabled = true;
+        _playerCube.GetComponent<TestMove>().enabled = true;
     }
 
     IEnumerator FadeScene()
@@ -91,7 +120,7 @@ public class LevelMaster : MonoBehaviour
 
         //StartCoroutine("LoadingScreen");
 
-        //ES3.Save<Vector3>("cubePosition", _playerCube.transform.position);
+        Save();
 
         SceneManager.LoadScene("Level01");
     }
@@ -100,7 +129,7 @@ public class LevelMaster : MonoBehaviour
     {
         GetComponent<Animator>().enabled = false;
 
-        _cube1.GetComponent<Renderer>().material = _yellow;
+        _levels[0].GetComponent<Renderer>().material = _yellow;
 
         //_cube1.GetComponentInChildren<ParticleSystem>().Play();
 
