@@ -43,5 +43,10 @@ public class TestMove : MonoBehaviour
         {
             cube1Clicked = true;
         }
+
+        if (other.gameObject.name == "Cube2")
+        {
+            cube2Clicked = true;
+        }
     }
 }
