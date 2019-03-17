@@ -28,25 +28,29 @@ public class TestMove : MonoBehaviour
         {
             transform.Translate(16.0f, 0.0f, 0.0f);
         }
-
-        if (cube1Clicked && Input.GetKeyDown(KeyCode.Space))
-        {
-            _levelMasterRef.Level1();
-        }
     }
 
     private bool cube1Clicked = false;
+    private bool cube2Clicked = false;
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.name == "Cube1")
+        if (other.gameObject.name == "Cube1" && Input.GetKeyDown(KeyCode.Space))
         {
-            cube1Clicked = true;
+            GetComponent<TestMove>().enabled = false;
+            _levelMasterRef.Level1();
         }
 
-        if (other.gameObject.name == "Cube2")
+        if (other.gameObject.name == "Cube2" && Input.GetKeyDown(KeyCode.Space))
         {
-            cube2Clicked = true;
+            GetComponent<TestMove>().enabled = false;
+            _levelMasterRef.Level2();
+        }
+
+        if (other.gameObject.name == "Cube3" && Input.GetKeyDown(KeyCode.Space))
+        {
+            GetComponent<TestMove>().enabled = false;
+            _levelMasterRef.Level3();
         }
     }
 }

@@ -95,11 +95,22 @@ public class Finish : MonoBehaviour
         if(sceneName == "Level01")
         {
             _levelFinished[0] = true;
-            _level1Done = true;
 
-            //ES3.Save<int>("myInteger", 123);
             ES3.Save<bool>("Level01", true);
-            Debug.Log("LEVEL 01 COMPLETE");
+        }
+
+        if (sceneName == "Level02")
+        {
+            _levelFinished[1] = true;
+
+            ES3.Save<bool>("Level02", true);
+        }
+
+        if (sceneName == "Level03")
+        {
+            _levelFinished[2] = true;
+
+            ES3.Save<bool>("Level03", true);
         }
     }
 
