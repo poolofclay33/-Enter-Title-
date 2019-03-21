@@ -33,6 +33,7 @@ public class TestMove : MonoBehaviour
     private bool cube1Clicked = false;
     private bool cube2Clicked = false;
 
+    //make sure rigidbody is attached to the object before you freak the fuck out.
     private void OnTriggerStay(Collider other)
     {
         if (other.gameObject.name == "Cube1" && Input.GetKeyDown(KeyCode.Space))
@@ -49,6 +50,7 @@ public class TestMove : MonoBehaviour
 
         if (other.gameObject.name == "Cube3" && Input.GetKeyDown(KeyCode.Space))
         {
+            Debug.Log("HERE");
             GetComponent<TestMove>().enabled = false;
             _levelMasterRef.Level3();
         }

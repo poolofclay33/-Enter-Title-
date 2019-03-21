@@ -112,6 +112,13 @@ public class Finish : MonoBehaviour
 
             ES3.Save<bool>("Level03", true);
         }
+
+        if (sceneName == "Level04")
+        {
+            _levelFinished[3] = true;
+
+            ES3.Save<bool>("Level04", true);
+        }
     }
 
     IEnumerator SlowTime()
