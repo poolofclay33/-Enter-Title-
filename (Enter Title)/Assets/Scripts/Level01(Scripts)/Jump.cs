@@ -23,6 +23,11 @@ public class Jump : MonoBehaviour
                 GetComponent<Rigidbody>().velocity = Vector3.down * jumpVelocity;
             }
         }
+
+        if (Input.GetKeyDown(KeyCode.U))
+        {
+            GetComponent<Animator>().Play("ChangeMatsOrb");
+        }
     }
 
     private void OnCollisionEnter(Collision collision)

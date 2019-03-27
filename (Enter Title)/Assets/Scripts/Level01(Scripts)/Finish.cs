@@ -125,10 +125,10 @@ public class Finish : MonoBehaviour
     {
         //CameraShaker.Instance.ShakeOnce(3f, 1f, .1f, 3f);
 
-        Time.timeScale = 0.2f;
+        //Time.timeScale = 0.2f;
 
         yield return new WaitForSeconds(0.4f);
 
-        Time.timeScale = 1.0f;
+        //Time.timeScale = 1.0f;
     }
 }

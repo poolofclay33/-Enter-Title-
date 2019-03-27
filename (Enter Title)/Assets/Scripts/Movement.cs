@@ -19,11 +19,15 @@ public class Movement : MonoBehaviour
     public TutorialCanvas _canvas;
     public RotatePickup _pickupRef;
 
-    public ParticleSystem _pickupParticle;
+    public GameObject _pickUp;
 
     public Material _pink;
 
     public bool _gravity = false;
+
+    public float _force;
+
+    public GameObject _jumpBlockCam;
 
     void Start()
     {
@@ -178,7 +182,9 @@ public class Movement : MonoBehaviour
 
         if (other.gameObject.tag == "Pickup")
         {
-            _pickupParticle.Play();
+            _pickUp.GetComponent<Renderer>().enabled = false;
+            GetComponent<Animator>().Play("ChangeMatsOrb");
+            //LerpColors._lerpRef.LerpMats();
         }
 
         if(other.gameObject.name == "ChangeMatTrigger")
@@ -191,6 +197,34 @@ public class Movement : MonoBehaviour
             _cam.GetComponent<Animator>().Play("GravitySwitchCam");
             Physics.gravity *= -1;
             _gravity = true;
+        }
+
+        if (other.gameObject.tag == "JumpPad")
+        {
+            GetComponent<Rigidbody>().velocity = Vector3.up * 25f;
+            _cam.GetComponent<Animator>().Play("TurnUp");
+        }
+
+        if (other.gameObject.tag == "TurnCamDown")
+        {
+            Debug.Log("HEREERE");
+            _cam.GetComponent<Animator>().Play("TurnDown");
+        }
+
+        if(other.gameObject.name == "ZoomOutCam1")
+        {
+            Debug.Log("1");
+            //_cam.GetComponent<Camera>().fieldOfView = 75;
+            //_cam.GetComponent<Animator>().Play("ZoomOut");
+            _cam.GetComponent<Camera>().enabled = false;
+            _jumpBlockCam.GetComponent<Camera>().enabled = true;
+            _jumpBlockCam.GetComponent<Animator>().Play("Pan");
+        }
+
+        if(other.gameObject.name == "ResetCam")
+        {
+            _jumpBlockCam.GetComponent<Camera>().enabled = false;
+            _cam.GetComponent<Camera>().enabled = true;
         }
     }
 
