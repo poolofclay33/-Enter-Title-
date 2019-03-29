@@ -252,7 +252,11 @@ GameObject:
   - component: {fileID: 731893489}
   - component: {fileID: 731893456}
   - component: {fileID: 731893485}
+<<<<<<< HEAD
   - component: {fileID: 4014035791362633078}
+=======
+  - component: {fileID: 2046264108602360882}
+>>>>>>> af6b3002edb22f9d3cf7822aedfe7dae71f9cc2f
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -363,8 +367,13 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
+<<<<<<< HEAD
   m_Size: {x: 1, y: 0.98843646, z: 0.96392065}
   m_Center: {x: 0, y: -0.0057817698, z: -0.003153175}
+=======
+  m_Size: {x: 1, y: 1, z: 0.9701126}
+  m_Center: {x: 0, y: 0, z: 0.001389563}
+>>>>>>> af6b3002edb22f9d3cf7822aedfe7dae71f9cc2f
 --- !u!114 &731893456
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -408,7 +417,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpVelocity: 10
   grounded: 1
+<<<<<<< HEAD
 --- !u!114 &4014035791362633078
+=======
+--- !u!114 &2046264108602360882
+>>>>>>> af6b3002edb22f9d3cf7822aedfe7dae71f9cc2f
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -420,7 +433,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47f2ab5365c7a4eb79573e182d7543bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   speed: 0
+=======
+  speed: 20
+>>>>>>> af6b3002edb22f9d3cf7822aedfe7dae71f9cc2f
   fallMulti: 2.5
   lowJump: 2
   _cam: {fileID: 0}
