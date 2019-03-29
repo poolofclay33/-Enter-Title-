@@ -56,20 +56,57 @@ public class ExplosionTest : MonoBehaviour
         _cube13.SetActive(true);
         _cube14.SetActive(true);
 
-        _cube1.GetComponent<Rigidbody>().AddForce(Vector3.right * thrust);
-        _cube2.GetComponent<Rigidbody>().AddForce(Vector3.right * thrust);
-        _cube3.GetComponent<Rigidbody>().AddForce(Vector3.right * thrust);
-        _cube4.GetComponent<Rigidbody>().AddForce(Vector3.right * thrust);
-        _cube5.GetComponent<Rigidbody>().AddForce(Vector3.right * thrust);
-        _cube6.GetComponent<Rigidbody>().AddForce(Vector3.right * thrust);
-        _cube7.GetComponent<Rigidbody>().AddForce(Vector3.right * thrust);
-        _cube8.GetComponent<Rigidbody>().AddForce(Vector3.right * thrust);
-        _cube9.GetComponent<Rigidbody>().AddForce(Vector3.right * thrust);
-        _cube10.GetComponent<Rigidbody>().AddForce(Vector3.right * thrust);
-        _cube11.GetComponent<Rigidbody>().AddForce(Vector3.right * thrust);
-        _cube12.GetComponent<Rigidbody>().AddForce(Vector3.right * thrust);
-        _cube13.GetComponent<Rigidbody>().AddForce(Vector3.right * thrust);
-        _cube14.GetComponent<Rigidbody>().AddForce(Vector3.right * thrust);
+        if(Movement._finishHit == true)
+        {
+            _cube1.GetComponent<Rigidbody>().AddForce(Vector3.right * thrust);
+            _cube2.GetComponent<Rigidbody>().AddForce(Vector3.right * thrust);
+            _cube3.GetComponent<Rigidbody>().AddForce(Vector3.right * thrust);
+            _cube4.GetComponent<Rigidbody>().AddForce(Vector3.right * thrust);
+            _cube5.GetComponent<Rigidbody>().AddForce(Vector3.right * thrust);
+            _cube6.GetComponent<Rigidbody>().AddForce(Vector3.right * thrust);
+            _cube7.GetComponent<Rigidbody>().AddForce(Vector3.right * thrust);
+            _cube8.GetComponent<Rigidbody>().AddForce(Vector3.right * thrust);
+            _cube9.GetComponent<Rigidbody>().AddForce(Vector3.right * thrust);
+            _cube10.GetComponent<Rigidbody>().AddForce(Vector3.right * thrust);
+            _cube11.GetComponent<Rigidbody>().AddForce(Vector3.right * thrust);
+            _cube12.GetComponent<Rigidbody>().AddForce(Vector3.right * thrust);
+            _cube13.GetComponent<Rigidbody>().AddForce(Vector3.right * thrust);
+            _cube14.GetComponent<Rigidbody>().AddForce(Vector3.right * thrust);
+        }
+        else
+        {
+            Vector3 explosionPos = transform.position;
+
+            _cube1.GetComponent<Rigidbody>().AddExplosionForce(power, explosionPos, radius, _radius);
+            _cube2.GetComponent<Rigidbody>().AddExplosionForce(power, explosionPos, radius, _radius);
+            _cube3.GetComponent<Rigidbody>().AddExplosionForce(power, explosionPos, radius, _radius);
+            _cube4.GetComponent<Rigidbody>().AddExplosionForce(power, explosionPos, radius, _radius);
+            _cube5.GetComponent<Rigidbody>().AddExplosionForce(power, explosionPos, radius, _radius);
+            _cube6.GetComponent<Rigidbody>().AddExplosionForce(power, explosionPos, radius, _radius);
+            _cube7.GetComponent<Rigidbody>().AddExplosionForce(power, explosionPos, radius, _radius);
+            _cube8.GetComponent<Rigidbody>().AddExplosionForce(power, explosionPos, radius, _radius);
+            _cube9.GetComponent<Rigidbody>().AddExplosionForce(power, explosionPos, radius, _radius);
+            _cube10.GetComponent<Rigidbody>().AddExplosionForce(power, explosionPos, radius, _radius);
+            _cube11.GetComponent<Rigidbody>().AddExplosionForce(power, explosionPos, radius, _radius);
+            _cube12.GetComponent<Rigidbody>().AddExplosionForce(power, explosionPos, radius, _radius);
+            _cube13.GetComponent<Rigidbody>().AddExplosionForce(power, explosionPos, radius, _radius);
+            _cube14.GetComponent<Rigidbody>().AddExplosionForce(power, explosionPos, radius, _radius);
+        }
+
+        //_cube1.GetComponent<Rigidbody>().AddForce(Vector3.right * thrust);
+        //_cube2.GetComponent<Rigidbody>().AddForce(Vector3.right * thrust);
+        //_cube3.GetComponent<Rigidbody>().AddForce(Vector3.right * thrust);
+        //_cube4.GetComponent<Rigidbody>().AddForce(Vector3.right * thrust);
+        //_cube5.GetComponent<Rigidbody>().AddForce(Vector3.right * thrust);
+        //_cube6.GetComponent<Rigidbody>().AddForce(Vector3.right * thrust);
+        //_cube7.GetComponent<Rigidbody>().AddForce(Vector3.right * thrust);
+        //_cube8.GetComponent<Rigidbody>().AddForce(Vector3.right * thrust);
+        //_cube9.GetComponent<Rigidbody>().AddForce(Vector3.right * thrust);
+        //_cube10.GetComponent<Rigidbody>().AddForce(Vector3.right * thrust);
+        //_cube11.GetComponent<Rigidbody>().AddForce(Vector3.right * thrust);
+        //_cube12.GetComponent<Rigidbody>().AddForce(Vector3.right * thrust);
+        //_cube13.GetComponent<Rigidbody>().AddForce(Vector3.right * thrust);
+        //_cube14.GetComponent<Rigidbody>().AddForce(Vector3.right * thrust);
 
         //_cube1.GetComponent<Rigidbody>().AddRelativeForce(transform.forward * thrust);
         //_cube2.GetComponent<Rigidbody>().AddRelativeForce(transform.forward * thrust);
@@ -88,20 +125,21 @@ public class ExplosionTest : MonoBehaviour
 
         //Vector3 explosionPos = transform.position;
 
-        //_cube1.GetComponent<Rigidbody>().AddExplosionForce(power, explosionPos, radius, 3.0f);
-        //_cube2.GetComponent<Rigidbody>().AddExplosionForce(power, explosionPos, radius, 3.0f);
-        //_cube3.GetComponent<Rigidbody>().AddExplosionForce(power, explosionPos, radius, 3.0f);
-        //_cube4.GetComponent<Rigidbody>().AddExplosionForce(power, explosionPos, radius, 3.0f);
-        //_cube5.GetComponent<Rigidbody>().AddExplosionForce(power, explosionPos, radius, 3.0f);
-        //_cube6.GetComponent<Rigidbody>().AddExplosionForce(power, explosionPos, radius, 3.0f);
-        //_cube7.GetComponent<Rigidbody>().AddExplosionForce(power, explosionPos, radius, 3.0f);
-        //_cube8.GetComponent<Rigidbody>().AddExplosionForce(power, explosionPos, radius, 3.0f);
-        //_cube9.GetComponent<Rigidbody>().AddExplosionForce(power, explosionPos, radius, 3.0f);
-        //_cube10.GetComponent<Rigidbody>().AddExplosionForce(power, explosionPos, radius, 3.0f);
-        //_cube11.GetComponent<Rigidbody>().AddExplosionForce(power, explosionPos, radius, 3.0f);
-        //_cube12.GetComponent<Rigidbody>().AddExplosionForce(power, explosionPos, radius, 3.0f);
-        //_cube13.GetComponent<Rigidbody>().AddExplosionForce(power, explosionPos, radius, 3.0f);
-        //_cube14.GetComponent<Rigidbody>().AddExplosionForce(power, explosionPos, radius, 3.0f);
+        //_cube1.GetComponent<Rigidbody>().AddExplosionForce(power, explosionPos, radius, _radius);
+        //_cube2.GetComponent<Rigidbody>().AddExplosionForce(power, explosionPos, radius, _radius);
+        //_cube3.GetComponent<Rigidbody>().AddExplosionForce(power, explosionPos, radius, _radius);
+        //_cube4.GetComponent<Rigidbody>().AddExplosionForce(power, explosionPos, radius, _radius);
+        //_cube5.GetComponent<Rigidbody>().AddExplosionForce(power, explosionPos, radius, _radius);
+        //_cube6.GetComponent<Rigidbody>().AddExplosionForce(power, explosionPos, radius, _radius);
+        //_cube7.GetComponent<Rigidbody>().AddExplosionForce(power, explosionPos, radius, _radius);
+        //_cube8.GetComponent<Rigidbody>().AddExplosionForce(power, explosionPos, radius, _radius);
+        //_cube9.GetComponent<Rigidbody>().AddExplosionForce(power, explosionPos, radius, _radius);
+        //_cube10.GetComponent<Rigidbody>().AddExplosionForce(power, explosionPos, radius, _radius);
+        //_cube11.GetComponent<Rigidbody>().AddExplosionForce(power, explosionPos, radius, _radius);
+        //_cube12.GetComponent<Rigidbody>().AddExplosionForce(power, explosionPos, radius, _radius);
+        //_cube13.GetComponent<Rigidbody>().AddExplosionForce(power, explosionPos, radius, _radius);
+        //_cube14.GetComponent<Rigidbody>().AddExplosionForce(power, explosionPos, radius, _radius);
 
     }
+    public float _radius = 10f;
 }
