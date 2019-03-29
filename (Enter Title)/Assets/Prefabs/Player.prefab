@@ -252,7 +252,7 @@ GameObject:
   - component: {fileID: 731893489}
   - component: {fileID: 731893456}
   - component: {fileID: 731893485}
-  - component: {fileID: 731893486}
+  - component: {fileID: 4014035791362633078}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -363,8 +363,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 0.98843646, z: 0.96392065}
+  m_Center: {x: 0, y: -0.0057817698, z: -0.003153175}
 --- !u!114 &731893456
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -408,7 +408,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpVelocity: 10
   grounded: 1
---- !u!114 &731893486
+--- !u!114 &4014035791362633078
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -417,18 +417,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 731893440}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 613e30b47154d4e209e306826cd5a60f, type: 3}
+  m_Script: {fileID: 11500000, guid: 47f2ab5365c7a4eb79573e182d7543bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 15
+  speed: 0
   fallMulti: 2.5
   lowJump: 2
   _cam: {fileID: 0}
-  _deathCam: {fileID: 103376735}
+  _deathCam: {fileID: 0}
   _finishCam: {fileID: 0}
   _canvas: {fileID: 0}
-  _pickupParticle: {fileID: 0}
-  _reference: {fileID: 731893456}
+  _pickupRef: {fileID: 0}
+  _pickUp: {fileID: 0}
+  _pink: {fileID: 0}
+  _gravity: 0
+  _force: 0
+  _jumpBlockCam: {fileID: 0}
+  _reference: {fileID: 0}
   _finishRef: {fileID: 0}
 --- !u!1 &731893441
 GameObject:
