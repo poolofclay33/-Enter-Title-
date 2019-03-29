@@ -255,28 +255,16 @@ GameObject:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> parent of 58b7424... Revert "..."
-=======
->>>>>>> parent of e6daaaa... ...
   - component: {fileID: 4014035791362633078}
 =======
   - component: {fileID: 2046264108602360882}
 >>>>>>> af6b3002edb22f9d3cf7822aedfe7dae71f9cc2f
-<<<<<<< HEAD
 =======
   - component: {fileID: 731893486}
 >>>>>>> parent of 9e20d05... ...
-<<<<<<< HEAD
 =======
   - component: {fileID: 4014035791362633078}
 >>>>>>> parent of a6ed9f3... Merge branch 'master' of https://github.com/poolofclay33/-Enter-Title-
-=======
->>>>>>> parent of 58b7424... Revert "..."
-=======
->>>>>>> parent of e6daaaa... ...
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -390,32 +378,20 @@ BoxCollider:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> parent of 58b7424... Revert "..."
-=======
->>>>>>> parent of e6daaaa... ...
   m_Size: {x: 1, y: 0.98843646, z: 0.96392065}
   m_Center: {x: 0, y: -0.0057817698, z: -0.003153175}
 =======
   m_Size: {x: 1, y: 1, z: 0.9701126}
   m_Center: {x: 0, y: 0, z: 0.001389563}
 >>>>>>> af6b3002edb22f9d3cf7822aedfe7dae71f9cc2f
-<<<<<<< HEAD
 =======
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 >>>>>>> parent of 9e20d05... ...
-<<<<<<< HEAD
 =======
   m_Size: {x: 1, y: 0.98843646, z: 0.96392065}
   m_Center: {x: 0, y: -0.0057817698, z: -0.003153175}
 >>>>>>> parent of a6ed9f3... Merge branch 'master' of https://github.com/poolofclay33/-Enter-Title-
-=======
->>>>>>> parent of 58b7424... Revert "..."
-=======
->>>>>>> parent of e6daaaa... ...
 --- !u!114 &731893456
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -462,28 +438,16 @@ MonoBehaviour:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> parent of 58b7424... Revert "..."
-=======
->>>>>>> parent of e6daaaa... ...
 --- !u!114 &4014035791362633078
 =======
 --- !u!114 &2046264108602360882
 >>>>>>> af6b3002edb22f9d3cf7822aedfe7dae71f9cc2f
-<<<<<<< HEAD
 =======
 --- !u!114 &731893486
 >>>>>>> parent of 9e20d05... ...
-<<<<<<< HEAD
 =======
 --- !u!114 &4014035791362633078
 >>>>>>> parent of a6ed9f3... Merge branch 'master' of https://github.com/poolofclay33/-Enter-Title-
-=======
->>>>>>> parent of 58b7424... Revert "..."
-=======
->>>>>>> parent of e6daaaa... ...
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -492,47 +456,30 @@ MonoBehaviour:
   m_GameObject: {fileID: 731893440}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 47f2ab5365c7a4eb79573e182d7543bb, type: 3}
+  m_Script: {fileID: 11500000, guid: 613e30b47154d4e209e306826cd5a60f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> parent of 58b7424... Revert "..."
-=======
->>>>>>> parent of e6daaaa... ...
   speed: 0
 =======
   speed: 20
 >>>>>>> af6b3002edb22f9d3cf7822aedfe7dae71f9cc2f
-<<<<<<< HEAD
 =======
   speed: 15
 >>>>>>> parent of 9e20d05... ...
-<<<<<<< HEAD
 =======
   speed: 0
 >>>>>>> parent of a6ed9f3... Merge branch 'master' of https://github.com/poolofclay33/-Enter-Title-
-=======
->>>>>>> parent of 58b7424... Revert "..."
-=======
->>>>>>> parent of e6daaaa... ...
   fallMulti: 2.5
   lowJump: 2
   _cam: {fileID: 0}
-  _deathCam: {fileID: 0}
+  _deathCam: {fileID: 103376735}
   _finishCam: {fileID: 0}
   _canvas: {fileID: 0}
-  _pickupRef: {fileID: 0}
-  _pickUp: {fileID: 0}
-  _pink: {fileID: 0}
-  _gravity: 0
-  _force: 0
-  _jumpBlockCam: {fileID: 0}
-  _reference: {fileID: 0}
+  _pickupParticle: {fileID: 0}
+  _reference: {fileID: 731893456}
   _finishRef: {fileID: 0}
 --- !u!1 &731893441
 GameObject:

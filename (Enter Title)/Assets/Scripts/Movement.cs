@@ -29,10 +29,6 @@ public class Movement : MonoBehaviour
 
     public GameObject _jumpBlockCam;
 
-    public static bool _finishHit = false;
-
-    public GameObject _finish;
-
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -179,8 +175,6 @@ public class Movement : MonoBehaviour
 
             //_cam.GetComponent<Camera>().enabled = false;
 
-            _finishHit = true;
-
             _reference.Explode();
 
             StartCoroutine("EndTutorial");
@@ -231,12 +225,6 @@ public class Movement : MonoBehaviour
         {
             _jumpBlockCam.GetComponent<Camera>().enabled = false;
             _cam.GetComponent<Camera>().enabled = true;
-        }
-
-        if (other.gameObject.name == "AnimateFinishBlock")
-        {
-            Debug.Log("HEREERERHERERE");
-            _finish.GetComponent<Animator>().Play("SlideAway");
         }
     }
 
