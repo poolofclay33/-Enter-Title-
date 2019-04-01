@@ -257,6 +257,7 @@ GameObject:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> parent of 58b7424... Revert "..."
 =======
@@ -277,6 +278,9 @@ GameObject:
 >>>>>>> parent of 58b7424... Revert "..."
 =======
 >>>>>>> parent of e6daaaa... ...
+=======
+  - component: {fileID: 4014035791362633078}
+>>>>>>> parent of a6ed9f3... Merge branch 'master' of https://github.com/poolofclay33/-Enter-Title-
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -392,6 +396,7 @@ BoxCollider:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> parent of 58b7424... Revert "..."
 =======
@@ -416,6 +421,10 @@ BoxCollider:
 >>>>>>> parent of 58b7424... Revert "..."
 =======
 >>>>>>> parent of e6daaaa... ...
+=======
+  m_Size: {x: 1, y: 0.98843646, z: 0.96392065}
+  m_Center: {x: 0, y: -0.0057817698, z: -0.003153175}
+>>>>>>> parent of a6ed9f3... Merge branch 'master' of https://github.com/poolofclay33/-Enter-Title-
 --- !u!114 &731893456
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -464,6 +473,7 @@ MonoBehaviour:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> parent of 58b7424... Revert "..."
 =======
@@ -484,6 +494,9 @@ MonoBehaviour:
 >>>>>>> parent of 58b7424... Revert "..."
 =======
 >>>>>>> parent of e6daaaa... ...
+=======
+--- !u!114 &4014035791362633078
+>>>>>>> parent of a6ed9f3... Merge branch 'master' of https://github.com/poolofclay33/-Enter-Title-
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -495,6 +508,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47f2ab5365c7a4eb79573e182d7543bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -520,6 +534,9 @@ MonoBehaviour:
 >>>>>>> parent of 58b7424... Revert "..."
 =======
 >>>>>>> parent of e6daaaa... ...
+=======
+  speed: 0
+>>>>>>> parent of a6ed9f3... Merge branch 'master' of https://github.com/poolofclay33/-Enter-Title-
   fallMulti: 2.5
   lowJump: 2
   _cam: {fileID: 0}
